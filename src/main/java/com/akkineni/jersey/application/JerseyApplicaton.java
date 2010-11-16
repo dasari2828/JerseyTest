@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.ws.rs.core.Application;
 
 import com.akkineni.jersey.CustomerResource;
+import com.akkineni.jersey.util.CustomResolver;
 
 public class JerseyApplicaton extends Application {
 
@@ -15,6 +16,7 @@ public class JerseyApplicaton extends Application {
 	public JerseyApplicaton() {
 		super();
 		singletons.add(new CustomerResource());
+		singletons.add(new CustomResolver());
 	}
 
 	@Override

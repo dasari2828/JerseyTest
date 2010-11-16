@@ -60,8 +60,6 @@ public class CustomerResource {
 	@Path("{id}")
 	@Produces("application/xml")
 	public StreamingOutput getCustomer(@PathParam("id") int id) {
-		System.out.println(id);
-		System.out.println(customerDB.size() + customerDB.toString());
 		final Customer customer = customerDB.get(id);
 		System.out.println(customer);
 		if (customer == null) {
@@ -77,8 +75,8 @@ public class CustomerResource {
 
 	@POST
 	@Consumes("application/xml")
-	public Response createCustomer(InputStream is) {
-		Customer customer = readDOMParser(is);
+	public Response createCustomer(Customer customer) {
+		// Customer customer = readDOMParser(is);
 		customer.setId(idCounter.incrementAndGet());
 		customerDB.put(customer.getId(), customer);
 		System.out.println("Created customer " + customer.getId());
@@ -107,8 +105,8 @@ public class CustomerResource {
 			throws IOException {
 		PrintStream writer = new PrintStream(os);
 		writer.println("<customer id=\"" + cust.getId() + "\">");
-		writer.println("	<first-name>" + cust.getFirstName() + "</first-name>");
-		writer.println("	<last-name>" + cust.getLastName() + "</last-name>");
+		writer.println("	<firstName>" + cust.getFirstName() + "</firstName>");
+		writer.println("	<lastName>" + cust.getLastName() + "</lastName>");
 		writer.println("	<street>" + cust.getStreet() + "</street>");
 		writer.println("	<city>" + cust.getCity() + "</city>");
 		writer.println("	<state>" + cust.getState() + "</state>");
@@ -286,11 +284,11 @@ public class CustomerResource {
 
 				if (node instanceof Element) {
 					Element eElement = (Element) node;
-					if (eElement.getTagName().equals("first-name")) {
+					if (eElement.getTagName().equals("firstName")) {
 						cus.setFirstName(eElement.getTextContent());
 					}
 
-					if (eElement.getTagName().equals("last-name")) {
+					if (eElement.getTagName().equals("lastName")) {
 						cus.setLastName(eElement.getTextContent());
 					}
 					if (eElement.getTagName().equals("street")) {

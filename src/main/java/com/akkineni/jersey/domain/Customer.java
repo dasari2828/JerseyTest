@@ -1,13 +1,30 @@
 package com.akkineni.jersey.domain;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "customer")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
+
+	@XmlAttribute
 	private int id;
+	@XmlElement
 	private String firstName;
+	@XmlElement
 	private String lastName;
+	@XmlElement
 	private String street;
+	@XmlElement
 	private String city;
+	@XmlElement
 	private String state;
+	@XmlElement
 	private String zip;
+	@XmlElement
 	private String country;
 
 	public int getId() {
