@@ -5,7 +5,7 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
-import com.akkineni.jersey.CutomerResource;
+import com.akkineni.jersey.CustomerResource;
 
 public class JerseyApplicaton extends Application {
 
@@ -14,7 +14,7 @@ public class JerseyApplicaton extends Application {
 
 	public JerseyApplicaton() {
 		super();
-		singletons.add(new CutomerResource());
+		singletons.add(new CustomerResource());
 	}
 
 	@Override
