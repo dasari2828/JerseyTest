@@ -5,7 +5,7 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
-import com.akkineni.jersey.CustomerResource;
+import com.akkineni.jersey.resource.CustomerResource;
 import com.akkineni.jersey.util.CustomResolver;
 
 public class JerseyApplicaton extends Application {

@@ -1,4 +1,4 @@
-package com.akkineni.jersey;
+package com.akkineni.jersey.resource;
 
 import java.io.IOException;
 import java.io.InputStream;
