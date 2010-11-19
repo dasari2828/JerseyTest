@@ -66,17 +66,16 @@
 			<artifactId>resteasy-spring</artifactId>
 			<version>2.0.1.GA</version>
 		</dependency>
-		
-		<!-- Asynchronous HTTP support with Servlet 3.0 (Jetty 7 pre5) <dependency> 
-			<groupId>org.jboss.resteasy</groupId> <artifactId>async-http-servlet-3.0</artifactId> 
-			<version>2.0.1.GA</version> </dependency> -->
 
-		<!-- Asynchronous HTTP support with Tomcat 6 -->
+		<!-- Asynchronous HTTP support with Servlet 3.0 (Jetty 7 pre5) -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>async-http-tomcat6</artifactId>
-			<version>1.1.GA</version>
+			<artifactId>async-http-servlet-3.0</artifactId>
+			<version>2.0.1.GA</version>
 		</dependency>
+
+		<!-- Asynchronous HTTP support with Tomcat 6 <dependency> <groupId>org.jboss.resteasy</groupId> 
+			<artifactId>async-http-tomcat6</artifactId> <version>1.1.GA</version> </dependency> -->
 
 		<dependency>
 			<groupId>junit</groupId>
