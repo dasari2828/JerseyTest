@@ -24,6 +24,7 @@ import javax.ws.rs.ext.Providers;
 
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.util.StaxParserHelper;
+import com.akkineni.schema.custom.InvoiceType;
 
 @Path("/customers")
 public class CustomerResource {
@@ -110,6 +111,15 @@ public class CustomerResource {
 		current.setState(update.getState());
 		current.setZip(update.getZip());
 		current.setCountry(update.getCountry());
+	}
+
+	@POST
+	@Path("/test")
+	@Consumes(MediaType.APPLICATION_XML)
+	public void test(InvoiceType invoice) {
+
+		System.out.println(invoice.getBooks().getBook().get(0).getName());
+
 	}
 
 }
