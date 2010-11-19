@@ -1,11 +1,8 @@
-package com.akkineni.jersey.client;
+package com.akkineni.rest.client;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.sun.grizzly.http.SelectorThread;
-import com.sun.jersey.api.container.grizzly.GrizzlyWebContainerFactory;
 
 public class Main {
 
@@ -19,15 +16,15 @@ public class Main {
 			initParams.put("com.sun.jersey.config.property.packages",
 					"com.akkineni.jersey");
 			System.out.println("Starting grizzly...");
-			SelectorThread threadSelector;
-			threadSelector = GrizzlyWebContainerFactory.create(baseUri,
-					initParams);
+			// SelectorThread threadSelector;
+			// threadSelector = GrizzlyWebContainerFactory.create(baseUri,
+			// initParams);
 			System.out
 					.println(String
 							.format("Jersey app started with WADL available at %sapplication.wadl\n” + “Try out %shelloworld\nHit enter to stop it...",
 									baseUri, baseUri));
 			System.in.read();
-			threadSelector.stopEndpoint();
+			// threadSelector.stopEndpoint();
 
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();

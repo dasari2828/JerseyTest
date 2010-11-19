@@ -1,4 +1,4 @@
-package com.akkineni.jersey.util;
+package com.akkineni.rest.util;
 
 import javax.xml.stream.StreamFilter;
 import javax.xml.stream.XMLStreamReader;

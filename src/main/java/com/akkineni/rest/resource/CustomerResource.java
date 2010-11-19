@@ -1,4 +1,4 @@
-package com.akkineni.jersey.resource;
+package com.akkineni.rest.resource;
 
 import java.io.InputStream;
 import java.net.URI;
@@ -18,11 +18,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Providers;
 
-import com.akkineni.jersey.domain.Customer;
-import com.akkineni.jersey.util.StaxParserHelper;
+import com.akkineni.rest.domain.Customer;
+import com.akkineni.rest.util.StaxParserHelper;
 
 @Path("/customers")
 public class CustomerResource {
@@ -46,7 +47,7 @@ public class CustomerResource {
 
 	@GET
 	@Path("{id}")
-	@Produces("application/xml")
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Customer getCustomer(@PathParam("id") int id) {
 		final Customer customer = customerDB.get(id);
 		if (customer == null) {

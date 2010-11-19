@@ -1,4 +1,4 @@
-package com.akkineni.jersey.util;
+package com.akkineni.rest.util;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.ext.ContextResolver;
@@ -6,7 +6,7 @@ import javax.ws.rs.ext.Provider;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
-import com.akkineni.jersey.domain.Customer;
+import com.akkineni.rest.domain.Customer;
 
 @Provider
 @Produces("application/xml")

@@ -1,4 +1,4 @@
-package com.akkineni.jersey.util;
+package com.akkineni.rest.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +13,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.akkineni.jersey.domain.Customer;
+import com.akkineni.rest.domain.Customer;
 
 public class DOMParserHelper {
 

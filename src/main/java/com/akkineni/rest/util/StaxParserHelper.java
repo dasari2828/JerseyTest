@@ -1,4 +1,4 @@
-package com.akkineni.jersey.util;
+package com.akkineni.rest.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +20,7 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import com.akkineni.jersey.domain.Customer;
+import com.akkineni.rest.domain.Customer;
 
 public class StaxParserHelper {
 

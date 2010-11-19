@@ -3,20 +3,39 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<display-name>Jersey Test Application</display-name>
+	<!-- Set this if you want Resteasy to scan for JAX-RS classes -->
+	<context-param>
+		<param-name>resteasy.scan</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<!-- set this if you map the Resteasy servlet to something other than /* -->
+	<context-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/resteasy</param-value>
+	</context-param>
+
+	<!-- To use Application you must set a servlet context-param, javax.ws.rs.core.Application 
+		with a fully qualified class that implements Application -->
+	<context-param>
+		<param-name>javax.ws.rs.core.Application</param-name>
+		<param-value>com.akkineni.rest.application.AkkiRestApplicaton</param-value>
+	</context-param>
+
+	<!-- to turn on security <context-param> <param-name>resteasy.role.based.security</param-name> 
+		<param-value>true</param-value> </context-param> -->
+
+	<listener>
+		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+	</listener>
 
 	<servlet>
-		<servlet-name>Jersey Web Application</servlet-name>
-		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		<init-param>
-			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>com.akkineni.jersey.application.JerseyApplicaton</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<servlet-name>Resteasy</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Resteasy</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 
