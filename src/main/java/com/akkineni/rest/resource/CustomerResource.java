@@ -116,9 +116,9 @@ public class CustomerResource {
 	@POST
 	@Path("/test")
 	@Consumes(MediaType.APPLICATION_XML)
-	public void test(InvoiceType invoice) {
+	public void test(InvoiceType[] invoice) {
 
-		System.out.println(invoice.getBooks().getBook().get(0).getName());
+		System.out.println(invoice.length);
 
 	}
 
