@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:InvoiceType xmlns:tns="http://www.akkineni.com/schema/custom"
+	xmlns:po="http://www.akkineni.com/schema/po/" xmlns:book="http://www.akkineni.com/schema/book/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.akkineni.com/schema/custom http://localhost:8080/JerseyTest/schema/CustomSchema.xsd ">
+	<tns:purchaseOrder>
+		<po:poNumber>123456</po:poNumber>
+		<po:poDesc>Purchase Order Description</po:poDesc>
+		<po:address>
+			<po:street1>Honme Depot Store</po:street1>
+			<po:street2>Paces Ferry Road</po:street2>
+			<po:city>Atlanta</po:city>
+			<po:state>Georgia</po:state>
+			<po:zip>30342</po:zip>
+		</po:address>
+		<po:items>
+			<po:itemNo>1234</po:itemNo>
+			<po:itemDesc>Item Description</po:itemDesc>
+		</po:items>
+	</tns:purchaseOrder>
+	<tns:books>
+		<tns:book>
+			<book:name>Restful Java</book:name>
+			<book:ISBN>123</book:ISBN>
+			<book:price>80</book:price>
+			<book:authors>
+				<book:authorName>Vijay Akkineni</book:authorName>
+			</book:authors>
+			<book:promotion>
+				<book:Discount>10%</book:Discount>
+			</book:promotion>
+			<book:publicationDate>2001-01-01</book:publicationDate>
+			<book:bookCategory>other</book:bookCategory>
+		</tns:book>
+	</tns:books>
+</tns:InvoiceType>
