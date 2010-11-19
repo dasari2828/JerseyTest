@@ -13,12 +13,14 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.events.XMLEvent;
 
+import com.akkineni.schema.custom.InvoiceType;
+
 public class JaxbTest {
 
 	public static void main(String args[]) {
 		try {
 			JAXBContext jaxbCtx = JAXBContext
-					.newInstance("com.akkineni.nitwians.types.books");
+					.newInstance("com.akkineni.schema.custom");
 			Unmarshaller unmarshaller = jaxbCtx.createUnmarshaller();
 			// unmarshaller.unmarshal(new File("testInput.xml"));
 			XMLInputFactory factory = XMLInputFactory.newFactory();
@@ -37,16 +39,12 @@ public class JaxbTest {
 
 				if (event == XMLEvent.START_ELEMENT) {
 					System.out.println(reader.getLocalName());
-					if (reader.getLocalName() == "Collection") {
-						Collection coll = (Collection) unmarshaller
+					if (reader.getLocalName() == "InvoiceType") {
+						InvoiceType invoice = (InvoiceType) unmarshaller
 								.unmarshal(reader);
 
-						// Books books = coll.getBooks();
-						//
-						// for (BookType type : books.getBook()) {
-						// System.out.println(type);
-						// System.out.println(type.getName());
-						// }
+						System.out.println(invoice.getBooks().getBook().get(0)
+								.getName());
 					}
 				}
 
