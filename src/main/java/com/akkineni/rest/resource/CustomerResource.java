@@ -51,7 +51,8 @@ public class CustomerResource {
 	public Customer getCustomer(@PathParam("id") int id) {
 		final Customer customer = customerDB.get(id);
 		if (customer == null) {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
+			throw new WebApplicationException(
+					Response.Status.SERVICE_UNAVAILABLE);
 		}
 		return customer;
 	}
