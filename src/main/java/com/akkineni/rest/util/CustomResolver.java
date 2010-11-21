@@ -34,7 +34,6 @@ public class CustomResolver implements ContextResolver<JAXBContext> {
 		if (type.equals(Customer.class)) {
 			ctx = this.customerCtx;
 		} else if (type.equals(InvoiceType.class)) {
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@2");
 			ctx = this.invoiceContext;
 		} else {
 		}
