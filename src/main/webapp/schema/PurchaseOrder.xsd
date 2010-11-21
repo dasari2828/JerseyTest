@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.akkineni.com/schema/po/"
+	xmlns:tns="http://www.akkineni.com/schema/po/" elementFormDefault="qualified">
+
+	<complexType name="PurchaseOrderType">
+		<sequence>
+			<element name="poNumber" minOccurs="1" maxOccurs="1" type="integer"></element>
+			<element name="poDesc" minOccurs="1" maxOccurs="1" type="string"></element>
+			<element name="address" minOccurs="1" maxOccurs="1"
+				type="tns:AddressType"></element>
+			<element name="items" minOccurs="1" maxOccurs="unbounded"
+				type="tns:ItemType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="AddressType">
+		<sequence>
+			<element name="street1" minOccurs="1" maxOccurs="1"></element>
+			<element name="street2" minOccurs="1" maxOccurs="1"></element>
+			<element name="city" minOccurs="1" maxOccurs="1"></element>
+			<element name="state" minOccurs="1" maxOccurs="1"></element>
+			<element name="zip" minOccurs="1" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ItemType">
+		<sequence>
+			<element name="itemNo" minOccurs="1" maxOccurs="1" type="integer" />
+			<element name="itemDesc" type="string" />
+		</sequence>
+	</complexType>
+
+</schema>

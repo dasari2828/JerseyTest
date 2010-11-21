@@ -7,17 +7,22 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
 import com.akkineni.rest.domain.Customer;
+import com.akkineni.schema.custom.InvoiceType;
 
 @Provider
 @Produces("application/xml")
 public class CustomResolver implements ContextResolver<JAXBContext> {
 
-	private JAXBContext ctx;
+	private JAXBContext customerCtx;
+	private JAXBContext invoiceContext;
 
 	public CustomResolver() {
 		super();
 		try {
-			this.ctx = JAXBContext.newInstance(Customer.class);
+			this.customerCtx = JAXBContext.newInstance(Customer.class);
+			this.invoiceContext = JAXBContext
+					.newInstance("com.akkineni.schema.custom");
+
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
@@ -25,12 +30,15 @@ public class CustomResolver implements ContextResolver<JAXBContext> {
 
 	@Override
 	public JAXBContext getContext(Class<?> type) {
+		JAXBContext ctx = null;
 		if (type.equals(Customer.class)) {
-			System.out.println("****************************" + ctx.hashCode());
-			return ctx;
+			ctx = this.customerCtx;
+		} else if (type.equals(InvoiceType.class)) {
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@2");
+			ctx = this.invoiceContext;
 		} else {
-			return null;
 		}
-	}
 
+		return ctx;
+	}
 }

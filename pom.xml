@@ -19,6 +19,11 @@
 			<version>1.9.18-i</version>
 		</dependency>
 		<dependency>
+			<groupId>com.akkineni.schema</groupId>
+			<artifactId>JaxbTypes</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-multipart</artifactId>
 			<version>1.4</version>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.akkineni.com/schema/custom" xmlns:tns="http://www.akkineni.com/schema/custom"
+	xmlns:book="http://www.akkineni.com/schema/book/" xmlns:po="http://www.akkineni.com/schema/po/"
+	elementFormDefault="qualified">
+	<xsd:import namespace="http://www.akkineni.com/schema/book/"
+		schemaLocation="http://localhost:8080/JerseyTest/schema/Book.xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.akkineni.com/schema/po/"
+		schemaLocation="http://localhost:8080/JerseyTest/schema/PurchaseOrder.xsd"></xsd:import>
+
+	<xsd:element name="InvoiceType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="purchaseOrder" type="po:PurchaseOrderType"></xsd:element>
+				<xsd:element name="books">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="book" type="book:bookType"
+								minOccurs="1" maxOccurs="unbounded" />
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

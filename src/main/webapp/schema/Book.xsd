@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.akkineni.com/schema/book/"
+	xmlns:tns="http://www.akkineni.com/schema/book/" elementFormDefault="qualified">
+
+	<complexType name="bookType">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="ISBN" type="long" />
+			<element name="price" type="string" />
+			<element name="authors">
+				<complexType>
+					<sequence>
+						<element name="authorName" type="string" minOccurs="1"
+							maxOccurs="unbounded" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="description" type="string" minOccurs="0" />
+			<element name="promotion">
+				<complexType>
+					<choice>
+						<element name="Discount" type="string" />
+						<element name="None" type="string" />
+					</choice>
+				</complexType>
+			</element>
+			<element name="publicationDate" type="date" />
+			<element name="bookCategory" type="tns:bookCategoryType">
+				<!--simpleType> <restriction base="NCName"> <enumeration value="magazine" 
+					/> <enumeration value="novel" /> <enumeration value="fiction" /> <enumeration 
+					value="other" /> </restriction> </simpleType -->
+			</element>
+		</sequence>
+		<attribute name="itemId" type="string" />
+	</complexType>
+
+
+
+	<simpleType name="bookCategoryType">
+		<restriction base="string">
+			<enumeration value="magazine" />
+			<enumeration value="novel" />
+			<enumeration value="fiction" />
+			<enumeration value="other" />
+		</restriction>
+	</simpleType>
+
+
+</schema>
