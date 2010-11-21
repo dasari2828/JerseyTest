@@ -2,7 +2,9 @@ package com.akkineni.rest.resource;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,6 +23,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Providers;
+
+import org.jboss.resteasy.plugins.providers.atom.Content;
+import org.jboss.resteasy.plugins.providers.atom.Entry;
+import org.jboss.resteasy.plugins.providers.atom.Feed;
+import org.jboss.resteasy.plugins.providers.atom.Link;
+import org.jboss.resteasy.plugins.providers.atom.Person;
 
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.util.StaxParserHelper;
@@ -120,6 +128,29 @@ public class CustomerResource {
 
 		System.out.println(invoice.length);
 
+	}
+
+	@GET
+	@Path("feed")
+	@Produces("application/atom+xml")
+	public Feed getFeed() throws URISyntaxException {
+		Feed feed = new Feed();
+		feed.setId(new URI("http://example.com/42"));
+		feed.setTitle("My Feed");
+		feed.setUpdated(new Date());
+		Link link = new Link();
+		link.setHref(new URI("http://localhost"));
+		link.setRel("edit");
+		feed.getLinks().add(link);
+		feed.getAuthors().add(new Person("Bill Burke"));
+		Entry entry = new Entry();
+		entry.setTitle("Hello World");
+		Content content = new Content();
+		content.setType(MediaType.TEXT_HTML_TYPE);
+		content.setText("Nothing much");
+		entry.setContent(content);
+		feed.getEntries().add(entry);
+		return feed;
 	}
 
 }
